@@ -1,0 +1,47 @@
+{
+    "timeZone": "Asia/Kolkata",
+    "dependencies": {
+      "enabledAdvancedServices": [
+        {
+          "userSymbol": "Gmail",
+          "version": "v1",
+          "serviceId": "gmail"
+        }
+      ]
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.modify",
+      "https://www.googleapis.com/auth/gmail.addons.execute",
+      "https://www.googleapis.com/auth/gmail.addons.current.message.readonly",
+      "https://www.googleapis.com/auth/gmail.addons.current.message.metadata",
+      "https://www.googleapis.com/auth/gmail.addons.current.message.action",
+      "https://www.googleapis.com/auth/gmail.addons.current.action.compose",
+      "https://www.googleapis.com/auth/script.external_request"
+    ],
+    "addOns": {
+      "common": {
+        "name": "Falcon Email Assistant",
+        "logoUrl": "https://clipart-library.com/images_k/falcon-transparent/falcon-transparent-21.png",
+        "layoutProperties": {
+          "primaryColor": "#4285F4"
+        }
+      },
+      "gmail": {
+        "homepageTrigger": {
+          "runFunction": "onHomepage"
+        },
+        "contextualTriggers": [
+          {
+            "unconditional": {},
+            "onTriggerFunction": "onGmailMessageOpen"
+          }
+        ]
+      }
+    },
+    "urlFetchWhitelist": [
+      "YOUR_MODEL"
+    ],
+    "runtimeVersion": "V8"
+  }
